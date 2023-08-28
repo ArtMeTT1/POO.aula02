@@ -1,0 +1,18 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var sistema_1 = require("./sistema");
+var bike_1 = require("./bike");
+var aluguel_1 = require("./aluguel");
+var usuario_1 = require("./usuario");
+var sistema0 = new sistema_1.Sistema;
+var arthur = new usuario_1.Usuario('arthur craveiro', '163597');
+sistema0.cadastraUsuario(arthur);
+var bike0 = new bike_1.Bike('1012');
+var bike1 = new bike_1.Bike('2003');
+sistema0.cadastraBike(bike0);
+sistema0.cadastraBike(bike1);
+var date1 = new Date("2020-02-01");
+var reserva0 = new aluguel_1.Aluguel(date1, date1, arthur, 'ict - unifesp', bike0);
+sistema0.aluga(reserva0);
+console.log(sistema0);
+console.log(reserva0);
