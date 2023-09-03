@@ -1,18 +1,28 @@
-import { Sistema } from "./sistema";
+import { App } from "./app";
 import { Bike } from "./bike";
-import { Aluguel } from "./aluguel";
-import { Usuario } from "./usuario";
+import { Rent } from "./rent";
+import { User } from "./user";
 
-const sistema0 = new Sistema
-const arthur = new Usuario('arthur craveiro', '163597')
-sistema0.cadastraUsuario(arthur)
-const bike0 = new Bike('1012')
-const bike1 = new Bike('2003')
-sistema0.cadastraBike(bike0)
-sistema0.cadastraBike(bike1)
-const date1 = new Date("2020-02-01")
-const reserva0 = new Aluguel(date1, date1, arthur, 'ict - unifesp', bike0)
-sistema0.aluga(reserva0)
+const bike = new Bike('mountain bike', 'mountain',123, 500, 100.5, 'desc', 5, [],'bikeId')
+const user = new User('Maria', 'maria@mail.com', '1234')
+const today = new Date()
+const twoDaysFromToday = new Date()
+twoDaysFromToday.setDate(twoDaysFromToday.getDate() + 2)
+const tomorrow = new Date()
+tomorrow.setDate(tomorrow.getDate() + 1)
+const sevenDaysFromToday = new Date()
+sevenDaysFromToday.setDate(sevenDaysFromToday.getDate() + 7)
+const rent1 = Rent.create([], bike, user, today, twoDaysFromToday)
+const user2 = new User('Maria Clara', 'maria@mail.com', '3123')
+const app = new App()
 
-console.log(sistema0)
-console.log(reserva0)
+app.registerUser(user)
+app.registerBike(bike)
+app.rentBike('bikeId',user,today,twoDaysFromToday)
+app.returnBike('bikeId',sevenDaysFromToday)
+//app.rentBike(bike,user2,today,twoDaysFromToday)
+//console.log(app.findRent('567'))
+//console.log(app.findUser('maria@mail.com'))
+//app.removeUser('maria@mail.com')
+//console.log(app.findUser('maria@mail.com'))
+

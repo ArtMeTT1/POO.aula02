@@ -2,18 +2,17 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Bike = void 0;
 var Bike = /** @class */ (function () {
-    function Bike(nSerie) {
-        this.status = false; //se tá reservada = 1, se tá livre = 0
-        this.nSerie = nSerie;
+    function Bike(name, type, bodySize, maxLoad, rate, description, ratings, imageUrls, id) {
+        this.name = name;
+        this.type = type;
+        this.bodySize = bodySize;
+        this.maxLoad = maxLoad;
+        this.rate = rate;
+        this.description = description;
+        this.ratings = ratings;
+        this.imageUrls = imageUrls;
+        this.id = id;
     }
-    Bike.prototype.libera = function () {
-        if (this.status == false) {
-            this.status = true;
-            return true; //se ela não tá reservada retorna 1 pra desbloquear o trem
-        }
-        else
-            return false; //não desbloquea o trem
-    };
     return Bike;
 }());
 exports.Bike = Bike;
